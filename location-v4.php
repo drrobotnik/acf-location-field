@@ -486,7 +486,9 @@ class acf_field_location extends acf_field
 
 		if( $field['val'] == 'address' )
 		{
-			$value = array( 'coordinates' => $value[1], 'address' => $value[0] );
+			$cords = explode( ',', $value[1] );
+
+			$value = array( 'coordinates' => array( 'lat' => $cords[0], 'lng' => $cords[1] ), 'address' => $value[0] );
 		}
 		else
 		{
